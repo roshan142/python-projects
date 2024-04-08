@@ -4,7 +4,7 @@ import requests
 import json
 
 app = Flask(__name__)
-app.config['secret_key'] = "RoshanRaja"
+app.config['secret_key'] = "weyutirfigfiuwyrgfiwkrgtouiyrserygvtryujr"
 def get_meme():
     url = "https://meme-api.com/gimme"
     response = json.loads(requests.request("GET",url).text)
