@@ -1,3 +1,4 @@
+#4/4/2024 Basic Password Manager
 from cryptography.fernet import Fernet
 
 def load_key():
