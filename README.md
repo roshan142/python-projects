@@ -1,2 +1,1 @@
-This Repository is used to upload my python projects <br>
-Learning to code in python!
+My Python Projects Are Uploaded Here!
