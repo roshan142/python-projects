@@ -1,6 +1,6 @@
-# Flask Web App Tutorial
-
-## Setup & Installation
+# Note Taking Web Application
+## Using Flask Module
+### Setup & Installation
 
 Make sure you have the latest version of Python installed.
 
