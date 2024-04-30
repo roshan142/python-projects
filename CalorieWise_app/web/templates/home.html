@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home|Caloriewise</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Ubuntu:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='bs/css/united.min.css') }}" />
+</head>
+<body>
+	<div class="container-fluid" id="wrapper">
+		<div class="row" id="homeJumbo">
+			<div class="overlay"></div>
+			<div class="col-lg-12">
+				<h1>
+					<a href="{{ url_for('views.home') }}">CALORIEWISE</a>
+				</h1>
+				<div class="row t20">
+					<div class="col-lg-4 col-lg-offset-4">
+						<ul class="nav nav-pills nav-justified">
+							<li role="presentation" class="active">
+								<a href="{{ url_for('views.home') }}" title="Home">Records</a>
+							</li>
+							<li role="presentation">
+								<a href="{{ url_for('views.add') }}" title="Add Food Item">Food List</a>
+							</li>
+							<li role="presentation">
+								<a href="{{ url_for('auth.log_out') }}" title="log out">Log Out</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row t20">
+			<div class="col-lg-4 col-lg-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form action="{{ url_for('views.create_log') }}" method="POST" role="form">
+							<div class="form-group text-center">
+								<label><i class="glyphicon glyphicon-plus-sign text-info"></i> Add New Date</label>
+								<div class="input-group">
+									<input type="date" class="form-control" name="date" placeholder="Select New Date"
+										aria-label="date" aria-describedby="add-btn" required>
+									<span class="input-group-btn">
+										<button type="submit" class="btn btn-info" id="add-btn">
+											<i class="glyphicon glyphicon-plus-sign"></i> Add Date
+										</button>
+									</span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<center>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			{% for category, message in messages %}
+			<div class="col-lg-4 col-lg-offset-4 alert alert-{{ category }} text-center">
+				{{ message }}
+			</div>
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+		</center>
+		<div class="row t20">
+			<div class="col-lg-12">
+				<h4 class="text-center text-black"><strong>Existing Records ({{ log_dates|length }})</strong></h4>
+			</div>
+		</div>
+		{% for row in log_dates|batch(4) %}
+		<div class="row t20">
+			{% for log_date in row %}
+			<div class="col-lg-3">
+				<div class="panel panel-warning">
+					<div class="panel-body text-bold">
+						<i class="glyphicon glyphicon-calendar text-primary"></i> {{
+						log_date['log_date'].date.strftime('%d %B %Y') }}
+						<a class="btn btn-primary btn-xs pull-right"
+							href="{{ url_for('views.view', log_id=log_date['log_date'].id) }}">
+							View <i class="glyphicon glyphicon-arrow-right"></i>
+						</a>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item text-bold"><span class="badge">{{
+								log_date['calories']*log_date['quantity'] }}</span> Calories</li>
+						<li class="list-group-item text-bold"><span class="badge">{{
+								log_date['proteins']*log_date['quantity'] }}</span> Protein</li>
+						<li class="list-group-item text-bold"><span class="badge">{{
+								log_date['carbs']*log_date['quantity'] }}</span> Carbohydrate</li>
+						<li class="list-group-item text-bold"><span class="badge">{{
+								log_date['fats']*log_date['quantity'] }}</span> Fat</li>
+					</ul>
+					<div class="panel-body text-bold">
+						<a class="btn btn-primary btn-xs pull-right"
+							href="{{ url_for('views.delete_log', log_id=log_date['log_date'].id) }}">
+							Delete <i class="glyphicon glyphicon-trash"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		{% endfor %}
+	</div>
+	<script src="{{ url_for('static', filename='bs/js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='bs/js/bootstrap.min.js') }}"></script>
+</body>
+</html>

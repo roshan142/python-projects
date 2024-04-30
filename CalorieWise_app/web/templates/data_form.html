@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="static/favicon.svg" type="image/icon type">
+    <title>About You|CalorieWise</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+crossorigin="anonymous"
+/>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="static/data_form.css">
+  </head>
+  <body>
+    <div class="main-block">
+      <div class="left-part">
+        <i class="fas fa-envelope"></i>
+        <i class="fas fa-at"></i>
+        <i class="fas fa-mail-bulk"></i>
+      </div>
+      <form method="post">
+        <h1>About You</h1>
+        <div class="info">
+          <input class="fname" type="number" id="weight" name="weight" placeholder="Weight(KG)" required="">
+          <input type="number" id="height" name="height" placeholder="Height(CM)" required="">
+          <a href="https://www.fittr.com/tools/macro-calculator/" target="_blank">Macro Calculator</a>
+          <p>☝️ Use this calculator to find your Macros & Calories value</p>
+          <input type="number" id="calorie" name="calorie" placeholder="Calorie" required="">
+          <input type="number" id="protein" name="protein" placeholder="Protein" required="">
+          <input type="number" id="carbs" name="carbs" placeholder="Carbs" required="">
+          <input type="number" id="fats" name="fats" placeholder="Fats" required="">
+        </div>
+        <button type="submit" href="/">Submit</button>
+      </form>
+    </div>
+    <script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+crossorigin="anonymous"
+></script>
+</body>
+</html>
