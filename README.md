@@ -12,3 +12,6 @@
 
 [Quiz](https://github.com/roshan142/python-projects/blob/3cbd07f752be603c08471572b0e0a3852b3a43c0/quiz_game.py)
 
+### Tools
+
+[ A Basic Password Manager](https://github.com/roshan142/python-projects/blob/f8df950ed539dcea395458b8c15b9c426fbb5e01/password_manager_python/main.py)
